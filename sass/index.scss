@@ -1,0 +1,734 @@
+@import "normalize";
+@import "base";
+//函数
+@function px2rem( $px ) {
+  @return $px/$designWidth*20*1rem;
+}
+
+$designWidth: 640;
+//混入
+@mixin bg($url,$width) {
+  position: absolute;
+  left: 50%;
+  margin-left: px2rem(-$width/2);
+  background: url($url) no-repeat center/ 100% 100%;
+}
+
+@mixin bgc($url) {
+  position: absolute;
+  background: url($url) no-repeat center/ 100% 100%;
+}
+
+@mixin size($width,$height) {
+  width: px2rem($width);
+  height: px2rem($height);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+//登陆界面
+.loading,
+.welcome {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.loading {
+  z-index: 2;
+  background-color: #FFECE9;
+
+  .rider {
+    position: absolute;
+    width: px2rem(154);
+    height: px2rem(121);
+    top: px2rem(233);
+    right: px2rem(110);
+    background: url("../image/loading/rider1_.png") no-repeat center/ 100% 100%;
+  }
+
+  .login {
+    @include bg('', 416);
+    width: px2rem(416);
+    height: px2rem(20);
+    top: px2rem(360);
+    border: 2px solid #373838;
+    border-radius: px2rem(20);
+    background-color: #fc2e4d;
+  }
+
+  .info {
+    @include bg('../image/loading/loading-txt.png', 220);
+    width: px2rem(220);
+    height: px2rem(28);
+    top: px2rem(420);
+  }
+
+  .logo {
+    @include bg('../image/loading/waimai-logo.png', 162);
+    width: px2rem(162);
+    height: px2rem(39);
+    bottom: px2rem(120);
+  }
+;
+}
+
+//欢迎界面
+.welcome {
+  background-color: deepskyblue;
+  z-index: 1;
+
+  .title {
+    @include bg('../image/page1/theme-title.png', 397);
+    width: px2rem(397);
+    height: px2rem(224);
+    top: px2rem(42);
+
+    .hello {
+      width: px2rem(75);
+      height: px2rem(70);
+      position: absolute;
+      background: url("../image/page1/hello.png") no-repeat center/ 100% 100%;
+      top: px2rem(20);
+      right: px2rem(8);
+    }
+  }
+
+  .cloud {
+    position: absolute;
+    bottom: px2rem(0);
+    width: px2rem(640);
+    height: px2rem(673);
+    background: url("../image/page1/clouds.png") no-repeat center/ 100% 100%;
+  }
+
+  .tree {
+    position: absolute;
+    bottom: px2rem(352);
+    width: px2rem(599);
+    height: px2rem(71);
+    background: url("../image/page1/trees.png") no-repeat center/ 100% 100%;
+  }
+
+  .grass1 {
+    position: absolute;
+    bottom: px2rem(0);
+    width: px2rem(640);
+    height: px2rem(396);
+    background: url("../image/page1/grass1.png") no-repeat center/ 100% 100%;
+  }
+
+  .grass2 {
+    position: absolute;
+    bottom: px2rem(0);
+    width: px2rem(640);
+    height: px2rem(228);
+    background: url("../image/page1/grass2.png") no-repeat center/ 100% 100%;
+  }
+
+  .bearBox {
+    @include bg('../image/page1/rider2.png', 167);
+    width: px2rem(167);
+    height: px2rem(279);
+    bottom: px2rem(346);
+
+    .smoke {
+      @include bg('../image/page1/jet1.png', 167);
+      width: px2rem(167);
+      height: px2rem(32);
+      bottom: px2rem(0);
+    }
+  }
+
+  .btnBox {
+    @include bg('../image/page1/circle1.png', 208);
+    width: px2rem(208);
+    height: px2rem(208);
+    bottom: px2rem(86);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+      width: px2rem(124);
+      height: px2rem(113);
+      background: url("../image/page1/bear-btn-pre.png") no-repeat center/ 100% 100%;
+    }
+
+    .cir2 {
+      @include bg('../image/page1/circle2.png', 208);
+      width: px2rem(208);
+      height: px2rem(208);
+      bottom: px2rem(0);
+    }
+  }
+
+  .words {
+    position: absolute;
+    bottom: px2rem(38);
+    text-align: center;
+    color: #4F6203;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+//轮播开始啦
+.swiper-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  position: absolute;
+  left: px2rem(32);
+  top: px2rem(32);
+  padding-left: px2rem(20);
+
+  h3 {
+    font-size: px2rem(64);
+    color: white;
+  }
+
+  p {
+    font-size: px2rem(24);
+    color: white;
+    padding-top: px2rem(12);
+  }
+
+  .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: px2rem(5);
+    background-color: #fff;
+  }
+}
+
+.swiper-slide {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.page1 {
+  background-color: #BE8651;
+
+  .scroll-page1 {
+    .bg {
+      @include bg('../image/page2/bg1.png', 576);
+      @include size(576, 573);
+      bottom: px2rem(252);
+    }
+
+    .person {
+      @include bg('../image/page2/front1.png', 439);
+      @include size(439, 349);
+      bottom: px2rem(290);
+      z-index: 1;
+
+      .files {
+        @include size(85, 50);
+        position: absolute;
+        bottom: px2rem(104);
+        left: px2rem(27);
+        background-image: url('../image/page2/papers.png');
+        background-position: bottom right;
+        -webkit-background-size: px2rem(115) px2rem(114);
+        background-size: px2rem(115) px2rem(114);
+
+        .paper1 {
+          @include size(86, 26);
+          position: absolute;
+          bottom: px2rem(45);
+          left: px2rem(-70);
+          background-image: url('../image/page2/papers.png');
+          background-position: px2rem(0) px2rem(-32);
+          -webkit-background-size: px2rem(115) px2rem(114);
+          background-size: px2rem(115) px2rem(114);
+        }
+
+        .paper2 {
+          @include size(64, 20);
+          position: absolute;
+          bottom: px2rem(80);
+          right: 0;
+          background-image: url('../image/page2/papers.png');
+          background-position: px2rem(-45) 0;
+          -webkit-background-size: px2rem(115) px2rem(114);
+          background-size: px2rem(115) px2rem(114);
+        }
+      }
+    }
+
+    .message {
+      @include bgc('../image/page2/txt-bubbl.png');
+      @include size(363, 119);
+      right: px2rem(140);
+      bottom: px2rem(140);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      .words {
+        @include bgc('../image/page2/txt-work.png');
+        @include size(220, 30);
+      }
+    }
+  }
+
+  .scroll-page2 {
+    .bg {
+      @include bg('../image/page2/bg2.png', 580);
+      @include size(580, 520);
+      bottom: px2rem(252);
+    }
+
+    .person {
+      @include bg('../image/page2/relax.png', 436);
+      @include size(436, 332);
+      bottom: px2rem(270);
+      z-index: 1;
+
+      .leg1 {
+        @include bgc('../image/page2/leg1.png');
+        @include size(113, 23);
+        bottom: px2rem(110);
+        left: px2rem(195);
+      }
+
+      .leg2 {
+        @include bgc('../image/page2/leg2.png');
+        @include size(85, 71);
+        bottom: px2rem(120);
+        left: px2rem(193);
+      }
+    }
+
+    .message {
+      @include bgc('../image/page2/txt-bubbl.png');
+      @include size(363, 119);
+      right: px2rem(140);
+      bottom: px2rem(140);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      .words {
+        @include bgc('../image/page2/txt-life.png');
+        @include size(224, 31);
+      }
+    }
+  }
+
+  .scroll-page3 {
+    .bg {
+      @include bg('../image/page2/bg3.png', 561);
+      @include size(561, 516);
+      bottom: px2rem(270);
+    }
+
+    .person {
+      @include bg('../image/page2/person.png', 436);
+      @include size(503, 229);
+      bottom: px2rem(300);
+      z-index: 1;
+
+      .word1 {
+        @include bgc('../image/page2/word1.png');
+        @include size(92, 83);
+        bottom: px2rem(194);
+        left: px2rem(7);
+      }
+
+      .word2 {
+        @include bgc('../image/page2/word2.png');
+        @include size(77, 70);
+        bottom: px2rem(245);
+        left: px2rem(115);
+      }
+
+      .word3 {
+        @include bgc('../image/page2/word3.png');
+        @include size(115, 104);
+        bottom: px2rem(220);
+        right: px2rem(130);
+      }
+
+      .word4 {
+        @include bgc('../image/page2/word4.png');
+        @include size(79, 73);
+        bottom: px2rem(230);
+        right: px2rem(12);
+      }
+    }
+
+    .message {
+      @include bgc('../image/page2/txt-bubbl.png');
+      @include size(363, 119);
+      right: px2rem(140);
+      bottom: px2rem(140);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      .words {
+        @include bgc('../image/page2/txt-res.png');
+        @include size(220, 30);
+      }
+    }
+  }
+
+  .sphere {
+    @include bgc('../image/page2/sphere1.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    @include bgc('../image/page2/bear1.png');
+    @include size(178, 134);
+    right: px2rem(38);
+    bottom: px2rem(0);
+  }
+}
+
+.page2 {
+  background-color: #EE4143;
+
+  .bg {
+    @include bg('../image/page3/bg4_.png', 592);
+    @include size(592, 490);
+    bottom: px2rem(330);
+  }
+
+  .sphere {
+    @include bgc('../image/page3/sphere2.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    position: absolute;
+    bottom: px2rem(310);
+    left: 50%;
+    margin-left: px2rem(-227/2);
+    background-image: url('../image/page3/bear2.png');
+    background-position: px2rem(-103) px2rem(-96);
+    -webkit-background-size: px2rem(368) px2rem(427);
+    background-size: px2rem(368) px2rem(427);
+    @include size(227, 336);
+
+    .face1 {
+      @include bgc('../image/page3/face1.png');
+      @include size(102, 102);
+      top: 0;
+      left: px2rem(-102);
+    }
+
+    .face2 {
+      @include bgc('../image/page3/face2.png');
+      @include size(101, 102);
+      top: px2rem(-102);
+      right: px2rem(-101/2);
+    }
+
+    .hand-left {
+      @include bgc('../image/page3/hand-left_.png');
+      @include size(74, 77);
+      top: px2rem(180);
+      left: px2rem(30);
+    }
+
+    .hand-right {
+      @include bgc('../image/page3/hand-right.png');
+      @include size(74, 77);
+      top: px2rem(180);
+      right: px2rem(30);
+    }
+  }
+
+  .table {
+    @include bg('../image/page3/table.png', 514);
+    @include size(514, 258);
+    bottom: px2rem(140);
+  }
+
+  .food {
+    @include bg('../image/page3/foods.png', 354);
+    @include size(354, 152);
+    bottom: px2rem(330);
+  }
+}
+
+.page3 {
+  background-color: #DD8A03;
+
+  .bg {
+    @include bg('../image/page4/bg5.png', 592);
+    @include size(592, 580);
+    bottom: px2rem(300);
+  }
+
+  .sphere {
+    @include bgc('../image/page4/sphere3.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    @include bg('../image/page4/bear3.png', 206);
+    @include size(206, 321);
+    bottom: px2rem(195);
+  }
+
+  .license {
+    @include bgc('../image/page4/license.png');
+    @include size(197, 140);
+    bottom: px2rem(500);
+    left: px2rem(40);
+  }
+
+  .oil {
+    @include bgc('../image/page4/oil.png');
+    @include size(231, 156);
+    bottom: px2rem(660);
+    left: px2rem(225);
+  }
+
+  .evil {
+    @include bgc('../image/page4/evil2.png');
+    @include size(198, 163);
+    bottom: px2rem(480);
+    right: px2rem(30);
+  }
+}
+
+.page4 {
+  background-color: #3FA100;
+
+  .bg {
+    @include bg('../image/page5/bg6.png', 588);
+    @include size(588, 333);
+    bottom: px2rem(300);
+  }
+
+  .sphere {
+    @include bgc('../image/page5/sphere4.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    @include bgc('../image/page5/bear4.png');
+    @include size(309, 325);
+    bottom: px2rem(170);
+    left: px2rem(200);
+  }
+
+  .card1 {
+    @include bgc('../image/page5/card1.png');
+    @include size(160, 175);
+    bottom: px2rem(435);
+    left: px2rem(32);
+  }
+
+  .card2 {
+    @include bgc('../image/page5/card2.png');
+    @include size(161, 209);
+    bottom: px2rem(530);
+    left: px2rem(240);
+  }
+
+  .card3 {
+    @include bgc('../image/page5/card3.png');
+    @include size(167, 184);
+    bottom: px2rem(420);
+    right: px2rem(45);
+  }
+}
+
+.page5 {
+  background-color: #0098CF;
+
+  .bg {
+    @include bg('../image/page6/bg7.png', 594);
+    @include size(594, 493);
+    bottom: px2rem(300);
+  }
+
+  .sphere {
+    @include bgc('../image/page6/sphere5.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    @include bg('../image/page6/rider2.png', 230);
+    @include size(230, 390);
+    bottom: px2rem(175);
+
+    .shadow {
+      @include bg('../image/page6/shadow.png', 114);
+      @include size(114, 26);
+      bottom: px2rem(0);
+    }
+  }
+
+  .cloud {
+    @include bg('../image/page6/weather-cloud.png', 432);
+    @include size(432, 160);
+    bottom: px2rem(645);
+  }
+}
+
+.page6 {
+  background-color: #B527A0;
+
+  .bg {
+    @include bg('../image/page7/bg8.png', 588);
+    @include size(588, 333);
+    bottom: px2rem(300);
+  }
+
+  .sphere {
+    @include bgc('../image/page7/sphere6.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+
+  .bear {
+    @include bg('../image/page7/bear5.png', 285);
+    @include size(285, 328);
+    bottom: px2rem(200);
+
+    .giftBox {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      .gift1 {
+        @include bg('../image/page7/gift1.png', 35);
+        @include size(35, 29);
+        transform: rotateZ(28deg) translateY(px2rem(240));
+      }
+
+      .gift2 {
+        @include bg('../image/page7/gift2.png', 93);
+        @include size(93, 79);
+        transform: rotateZ(28*2deg) translateY(px2rem(240));
+      }
+
+      .gift3 {
+        @include bg('../image/page7/gift3.png', 72);
+        @include size(72, 64);
+        transform: rotateZ(28*3deg) translateY(px2rem(240));
+      }
+
+      .gift4 {
+        @include bg('../image/page7/gift4.png', 91);
+        @include size(91, 73);
+        transform: rotateZ(28*4deg) translateY(px2rem(240));
+      }
+
+      .gift5 {
+        @include bg('../image/page7/gift5.png', 99);
+        @include size(99, 65);
+        transform: rotateZ(28*5deg) translateY(px2rem(240));
+      }
+
+      .gift6 {
+        @include bg('../image/page7/gift6.png', 107);
+        @include size(107, 80);
+        transform: rotateZ(28*6deg) translateY(px2rem(240));
+      }
+
+      .gift7 {
+        @include bg('../image/page7/gift7.png', 107);
+        @include size(107, 80);
+        transform: rotateZ(28*7deg) translateY(px2rem(240));
+      }
+
+      .gift8 {
+        @include bg('../image/page7/gift8.png', 88);
+        @include size(88, 64);
+        transform: rotateZ(28*8deg) translateY(px2rem(240));
+      }
+
+      .gift9 {
+        @include bg('../image/page7/gift10.png', 78);
+        @include size(78, 50);
+        transform: rotateZ(28*9deg) translateY(px2rem(240));
+      }
+
+      .gift10 {
+        @include bg('../image/page7/gift11.png', 49);
+        @include size(49, 37);
+        transform: rotateZ(28*10deg) translateY(px2rem(240));
+      }
+
+      .gift11 {
+        @include bg('../image/page7/gift11.png', 51);
+        @include size(51, 31);
+        transform: rotateZ(28*11deg) translateY(px2rem(240));
+      }
+
+      .gift12 {
+        @include bg('../image/page7/gift12.png', 37);
+        @include size(37, 23);
+        transform: rotateZ(28*12deg) translateY(px2rem(240));
+      }
+    }
+  }
+}
+
+.page7 {
+  background-color: #19072A;
+  .sphere {
+    @include bgc('../image/page8/sphere7.png');
+    @include size(640, 356);
+    bottom: px2rem(0);
+  }
+  .lamp {
+    @include bgc('../image/page8/streetlight.png');
+    @include size(80, 443);
+    bottom: px2rem(300);
+    left: px2rem(240);
+    .light{
+      @include bgc('../image/page8/lamplight.png');
+      @include size(437, 427);
+      top: px2rem(10);
+      left: px2rem(-140);
+    }
+  }
+  .moto{
+    @include bgc('../image/page8/moto.png');
+    @include size(200, 137);
+    bottom: px2rem(280);
+    left: px2rem(70);
+  }
+  .bear {
+    @include bgc('../image/page8/bear6.png');
+    @include size(276, 271);
+    right: px2rem(120);
+    bottom: px2rem(280);
+  }
+  .share {
+    @include bg('../image/page8/share.png',379);
+    @include size(379, 113);
+    bottom: px2rem(140);
+  }
+}

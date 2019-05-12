@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小熊外卖</title>
+    <script type="text/javascript">
+        // 页面打开 立即计算
+        document.querySelector('html').style.fontSize = window.screen.width / 20 + 'px';
+        // 尺寸更改也会重新计算
+        // 这里 写这个事件的目的是 是为了 让我们在 桌面端测试时 可以自动计算 移动端
+        window.onresize = function () {
+            document.querySelector('html').style.fontSize = window.screen.width / 20 + 'px';
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide page1">
+            <!--固定的标题-->
+            <div class="title">
+                <h3>生活中,</h3>
+                <p>经常有这种时候...</p>
+                <div class="line"></div>
+            </div>
+            <!--第一框的轮播-->
+            <div class="scroll-page1" style="display: none">
+                <div class="bg"></div>
+                <div class="person">
+                    <div class="files">
+                        <div class="paper1"></div>
+                        <div class="paper2"></div>
+                    </div>
+                </div>
+                <div class="message">
+                    <div class="words"></div>
+                </div>
+            </div>
+            <div class="scroll-page2" style="display: none">
+                <div class="bg"></div>
+                <div class="person">
+                    <div class="leg1"></div>
+                    <div class="leg2"></div>
+                </div>
+                <div class="message">
+                    <div class="words"></div>
+                </div>
+            </div>
+            <div class="scroll-page3">
+                <div class="bg"></div>
+                <div class="person">
+                    <div class="word1"></div>
+                    <div class="word2"></div>
+                    <div class="word3"></div>
+                    <div class="word4"></div>
+                </div>
+                <div class="message">
+                    <div class="words"></div>
+                </div>
+            </div>
+            <!--固定的星球-->
+            <div class="sphere"></div>
+            <!--固定的熊-->
+            <div class="bear"></div>
+        </div>
+        <div class="swiper-slide page2">
+            <div class="title">
+                <h3>这时候,</h3>
+                <p>如果有一份好吃的外卖...<br>正好出现...</p>
+                <div class="line"></div>
+            </div>
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="bear">
+                <div class="face1"></div>
+                <div class="face2"></div>
+                <div class="hand-left"></div>
+                <div class="hand-right"></div>
+            </div>
+            <div class="table"></div>
+            <div class="food"></div>
+        </div>
+        <div class="swiper-slide page3">
+            <div class="title">
+                <h3>这时候,</h3>
+                <p>如果有一份美味的外卖...<br>正好出现...</p>
+                <div class="line"></div>
+            </div>
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="bear"></div>
+            <div class="license"></div>
+            <div class="oil"></div>
+            <div class="evil"></div>
+        </div>
+        <div class="swiper-slide page4">
+            <div class="title">
+                <h3>小熊外卖...</h3>
+                <p>只做有品质的外卖...<br>操作快捷...</p>
+                <div class="line"></div>
+            </div>
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="bear"></div>
+            <div class="card1"></div>
+            <div class="card2"></div>
+            <div class="card3"></div>
+        </div>
+        <div class="swiper-slide page5">
+            <div class="title">
+                <h3>无论前方...</h3>
+                <p>狂风、大雨、还是飘雪...<br>始终坚持在路上...</p>
+                <div class="line"></div>
+            </div>
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="bear">
+                <div class="shadow"></div>
+            </div>
+            <div class="cloud"></div>
+
+        </div>
+        <div class="swiper-slide page6">
+            <div class="title">
+                <h3>丰富礼品...</h3>
+                <p>省钱省到手抽筋...</p>
+                <div class="line"></div>
+            </div>
+            <div class="bg"></div>
+            <div class="sphere"></div>
+            <div class="bear">
+                <div class="giftBox">
+                    <div class="gift1"></div>
+                    <div class="gift2"></div>
+                    <div class="gift3"></div>
+                    <div class="gift4"></div>
+                    <div class="gift5"></div>
+                    <div class="gift6"></div>
+                    <div class="gift7"></div>
+                    <div class="gift8"></div>
+                    <div class="gift9"></div>
+                    <div class="gift10"></div>
+                    <div class="gift11"></div>
+                    <div class="gift12"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-slide page7">
+            <div class="title">
+                <h3>所有的努力...</h3>
+                <p>就是为了把健康美味...<br>呈现给你...</p>
+                <div class="line"></div>
+            </div>
+            <div class="sphere"></div>
+            <div class="lamp">
+                <div class="light"></div>
+            </div>
+            <div class="moto"></div>
+            <div class="bear"></div>
+            <div class="share"></div>
+        </div>
+    </div>
+</div>
+<div class="loading">
+    <div class="rider"></div>
+    <div class="login"></div>
+    <div class="info"></div>
+    <div class="logo"></div>
+</div>
+<div class="welcome">
+    <div class="title">
+        <div class="hello"></div>
+    </div>
+    <div class="cloud"></div>
+    <div class="grass1"></div>
+    <div class="grass2"></div>
+    <div class="tree"></div>
+    <div class="bearBox">
+        <div class="bear"></div>
+        <div class="smoke"></div>
+    </div>
+    <div class="btnBox">
+        <div class="btn"></div>
+        <div class="cir2"></div>
+    </div>
+    <span class="words">长按启动，观外卖之路</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+<script src="lib/zepto/zepto.js"></script>
+<script src="lib/zepto/event.js"></script>
+<script src="lib/zepto/fx.js"></script>
+<script src="lib/zepto/fx_methods.js"></script>
+<script src="lib/zepto/touch.js"></script>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'vertical',
+    })
+    // $('.loading').click(function () {
+    //     $(this).fadeOut()
+    // })
+    // $('.welcome').click(function () {
+    //     $(this).fadeOut()
+    // })
+</script>
+</body>
+</html>
