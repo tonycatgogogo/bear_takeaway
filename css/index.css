@@ -450,8 +450,13 @@ html, body {
     height: 0.625rem;
     top: 11.25rem;
     border: 2px solid #373838;
-    border-radius: 0.625rem;
-    background-color: #fc2e4d; }
+    border-radius: 0.625rem; }
+    .loading .login .bar {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 20%;
+      background-color: #fc2e4d; }
   .loading .info {
     position: absolute;
     left: 50%;
@@ -468,6 +473,11 @@ html, body {
     width: 5.0625rem;
     height: 1.21875rem;
     bottom: 3.75rem; }
+
+.loading.animate .bar {
+  animation: steps 1s linear forwards; }
+.loading.animate .rider {
+  animation: riderDrive 1s linear forwards; }
 
 .welcome {
   background-color: deepskyblue;
@@ -498,27 +508,36 @@ html, body {
     bottom: 11rem;
     width: 18.71875rem;
     height: 2.21875rem;
-    background: url("../image/page1/trees.png") no-repeat center/100% 100%; }
+    background: url("../image/page1/trees.png") no-repeat center/100% 100%;
+    opacity: 0; }
   .welcome .grass1 {
     position: absolute;
     bottom: 0rem;
     width: 20rem;
-    height: 12.375rem;
+    height: 1.5625rem;
     background: url("../image/page1/grass1.png") no-repeat center/100% 100%; }
   .welcome .grass2 {
     position: absolute;
     bottom: 0rem;
     width: 20rem;
     height: 7.125rem;
-    background: url("../image/page1/grass2.png") no-repeat center/100% 100%; }
+    background: url("../image/page1/grass2.png") no-repeat center/100% 100%;
+    opacity: 0; }
   .welcome .bearBox {
     position: absolute;
     left: 50%;
     margin-left: -2.609375rem;
-    background: url("../image/page1/rider2.png") no-repeat center/100% 100%;
     width: 5.21875rem;
     height: 8.71875rem;
     bottom: 10.8125rem; }
+    .welcome .bearBox .bear {
+      position: absolute;
+      left: 50%;
+      margin-left: -2.609375rem;
+      background: url("../image/page1/rider2.png") no-repeat center/100% 100%;
+      width: 5.21875rem;
+      height: 8.71875rem;
+      bottom: 0; }
     .welcome .bearBox .smoke {
       position: absolute;
       left: 50%;
@@ -531,17 +550,25 @@ html, body {
     position: absolute;
     left: 50%;
     margin-left: -3.25rem;
-    background: url("../image/page1/circle1.png") no-repeat center/100% 100%;
     width: 6.5rem;
     height: 6.5rem;
     bottom: 2.6875rem;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    opacity: 0; }
     .welcome .btnBox .btn {
       width: 3.875rem;
       height: 3.53125rem;
       background: url("../image/page1/bear-btn-pre.png") no-repeat center/100% 100%; }
+    .welcome .btnBox .cir1 {
+      position: absolute;
+      left: 50%;
+      margin-left: -3.25rem;
+      background: url("../image/page1/circle1.png") no-repeat center/100% 100%;
+      width: 6.5rem;
+      height: 6.5rem;
+      bottom: 0rem; }
     .welcome .btnBox .cir2 {
       position: absolute;
       left: 50%;
@@ -559,12 +586,46 @@ html, body {
     width: 100%;
     margin: 0 auto; }
 
+.welcome .btnBox {
+  opacity: 0;
+  transform: scale(0, 0); }
+.welcome .bearBox {
+  opacity: 0; }
+  .welcome .bearBox .smoke {
+    opacity: 0; }
+.welcome .title {
+  opacity: 0; }
+  .welcome .title .hello {
+    opacity: 0; }
+
+.welcome.animate .grass1 {
+  animation: grass1 .5s linear forwards; }
+.welcome.animate .grass2 {
+  animation: grass2 .5s .5s linear forwards; }
+.welcome.animate .tree {
+  animation: trees .5s 1s forwards; }
+.welcome.animate .btnBox {
+  animation: btnAppear .5s 1.5s forwards; }
+  .welcome.animate .btnBox .cir2 {
+    animation: cir2 1s 1.5s infinite; }
+.welcome.animate .bearBox {
+  animation: bearDown .5s 2s forwards; }
+  .welcome.animate .bearBox .bear {
+    animation: upAndDown .5s 2s infinite; }
+  .welcome.animate .bearBox .smoke {
+    animation: smokeBig .5s 2s infinite; }
+.welcome.animate .title {
+  animation: bearDown .5s 2.5s forwards; }
+  .welcome.animate .title .hello {
+    animation: smokeBig .5s 3s forwards; }
+
 .swiper-container {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  overflow: hidden; }
 
 .title {
   position: absolute;
@@ -778,6 +839,70 @@ html, body {
     right: 1.1875rem;
     bottom: 0rem; }
 
+.page1 .scroll-page1 .bg {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page1 .scroll-page1 .person {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page1 .scroll-page1 .message {
+  opacity: 0;
+  transform-origin: right bottom; }
+.page1 .scroll-page2 .bg {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page1 .scroll-page2 .person {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+  .page1 .scroll-page2 .person .leg2 {
+    transform-origin: left bottom;
+    transform: rotate(30deg); }
+.page1 .scroll-page2 .message {
+  opacity: 0;
+  transform-origin: right bottom; }
+.page1 .scroll-page3 .bg {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page1 .scroll-page3 .person {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page1 .scroll-page3 .message {
+  opacity: 0;
+  transform-origin: right bottom; }
+
+.page1.animate .scroll-page1 .bg {
+  animation: rotateInAndOut 1.5s forwards; }
+.page1.animate .scroll-page1 .person {
+  animation: rotateInAndOut 1.5s .2s forwards; }
+  .page1.animate .scroll-page1 .person .paper1 {
+    animation: leftAndRight 1s infinite; }
+  .page1.animate .scroll-page1 .person .paper2 {
+    animation: leftAndRight .5s infinite; }
+.page1.animate .scroll-page1 .message {
+  animation: rotateInAndOut 1.5s .5s forwards; }
+.page1.animate .scroll-page2 .bg {
+  animation: rotateInAndOut 1.5s 1.7s forwards; }
+.page1.animate .scroll-page2 .person {
+  animation: rotateInAndOut 1.5s 1.9s forwards; }
+  .page1.animate .scroll-page2 .person .leg2 {
+    animation: changeLeg 1s 2.2s forwards; }
+.page1.animate .scroll-page2 .message {
+  animation: rotateInAndOut 1.5s 2.2s forwards; }
+.page1.animate .scroll-page3 .bg {
+  animation: rotateInNotOut .5s 3.4s forwards; }
+.page1.animate .scroll-page3 .person {
+  animation: rotateInNotOut .5s 3.6s forwards; }
+  .page1.animate .scroll-page3 .person .word1 {
+    animation: moveAround .5s infinite; }
+  .page1.animate .scroll-page3 .person .word2 {
+    animation: moveAround 1s infinite; }
+  .page1.animate .scroll-page3 .person .word3 {
+    animation: moveAround 1.5s infinite; }
+  .page1.animate .scroll-page3 .person .word4 {
+    animation: moveAround 2s infinite; }
+.page1.animate .scroll-page3 .message {
+  animation: rotateInNotOut .5s 3.9s forwards; }
+
 .page2 {
   background-color: #EE4143; }
   .page2 .bg {
@@ -850,6 +975,40 @@ html, body {
     height: 4.75rem;
     bottom: 10.3125rem; }
 
+.page2 .bg {
+  opacity: 0; }
+.page2 .bear {
+  opacity: 0; }
+  .page2 .bear .face1 {
+    opacity: 0; }
+  .page2 .bear .face2 {
+    opacity: 0; }
+  .page2 .bear .hand-left {
+    transform-origin: left top; }
+  .page2 .bear .hand-right {
+    transform-origin: right top; }
+.page2 .table {
+  opacity: 0; }
+.page2 .food {
+  opacity: 0; }
+
+.page2.animate .bg {
+  animation: rotateInNotOut .5s forwards; }
+.page2.animate .bear {
+  animation: bearDown .5s 0.2s forwards; }
+  .page2.animate .bear .face1 {
+    animation: big2small2big .5s 1s forwards; }
+  .page2.animate .bear .face2 {
+    animation: big2small2big .5s 1s forwards; }
+  .page2.animate .bear .hand-left {
+    animation: handShake .2s 1.2s infinite; }
+  .page2.animate .bear .hand-right {
+    animation: handShake .2s 1.2s infinite; }
+.page2.animate .table {
+  animation: down2Up .5s .5s forwards; }
+.page2.animate .food {
+  animation: down2Up .5s .7s forwards; }
+
 .page3 {
   background-color: #DD8A03; }
   .page3 .bg {
@@ -895,6 +1054,86 @@ html, body {
     height: 5.09375rem;
     bottom: 15rem;
     right: 0.9375rem; }
+
+.page3 .bg {
+  opacity: 0;
+  transform-origin: 50% 200%; }
+.page3 .bear {
+  opacity: 0; }
+.page3 .tBearBox .bear3-1 {
+  position: absolute;
+  left: 50%;
+  margin-left: -3.921875rem;
+  background: url("../image/page4/bear3-1-1.png") no-repeat center/100% 100%;
+  width: 7.84375rem;
+  height: 10.46875rem;
+  bottom: 6.09375rem;
+  opacity: 0;
+  z-index: 1; }
+.page3 .tBearBox .bear3-2 {
+  position: absolute;
+  left: 50%;
+  margin-left: -3.359375rem;
+  background: url("../image/page4/bear3-2-1.png") no-repeat center/100% 100%;
+  width: 6.71875rem;
+  height: 9.78125rem;
+  bottom: 6.09375rem;
+  opacity: 0;
+  z-index: 1; }
+.page3 .tBearBox .bear3-3 {
+  position: absolute;
+  left: 50%;
+  margin-left: -4.53125rem;
+  background: url("../image/page4/bear3-3-1.png") no-repeat center/100% 100%;
+  width: 9.0625rem;
+  height: 10.03125rem;
+  bottom: 6.09375rem;
+  opacity: 0;
+  z-index: 1; }
+.page3 .license {
+  opacity: 0; }
+.page3 .oil {
+  opacity: 0; }
+.page3 .evil {
+  opacity: 0; }
+.page3 .tPadBox .pad3-1 {
+  position: absolute;
+  background: url("../image/page4/license1.png") no-repeat center/100% 100%;
+  width: 7.125rem;
+  height: 4.71875rem;
+  bottom: 15.625rem;
+  left: 1.25rem;
+  opacity: 0;
+  z-index: 1; }
+.page3 .tPadBox .pad3-2 {
+  position: absolute;
+  background: url("../image/page4/oil1.png") no-repeat center/100% 100%;
+  width: 7.21875rem;
+  height: 4.875rem;
+  bottom: 20.625rem;
+  left: 7.03125rem;
+  opacity: 0;
+  z-index: 1; }
+.page3 .tPadBox .pad3-3 {
+  position: absolute;
+  background: url("../image/page4/evil21.png") no-repeat center/100% 100%;
+  width: 6.1875rem;
+  height: 5.09375rem;
+  bottom: 15rem;
+  right: 0.9375rem;
+  opacity: 0;
+  z-index: 1; }
+
+.page3.animate .bg {
+  animation: rotateInNotOut .5s forwards; }
+.page3.animate .bear {
+  animation: bearDown .5s 0.5s forwards; }
+.page3.animate .license {
+  animation: big2small2big .5s 1s forwards, moveAround .6s 1.5s infinite; }
+.page3.animate .oil {
+  animation: big2small2big .5s 1s forwards, moveAround .8s 1.5s infinite; }
+.page3.animate .evil {
+  animation: big2small2big .5s 1s forwards, moveAround .7s 1.5s infinite; }
 
 .page4 {
   background-color: #3FA100; }
@@ -1151,3 +1390,173 @@ html, body {
     width: 11.84375rem;
     height: 3.53125rem;
     bottom: 4.375rem; }
+
+@keyframes steps {
+  from {
+    width: 20%; }
+  to {
+    width: 100%; } }
+@keyframes riderDrive {
+  10% {
+    transform: translateX(-0.8125rem) translateY(-0.15625rem); }
+  20% {
+    transform: translateX(-1.625rem) translateY(0.15625rem); }
+  30% {
+    transform: translateX(-2.4375rem) translateY(-0.15625rem); }
+  40% {
+    transform: translateX(-3.25rem) translateY(0.15625rem); }
+  50% {
+    transform: translateX(-4.0625rem) translateY(-0.15625rem); }
+  60% {
+    transform: translateX(-4.875rem) translateY(0.15625rem); }
+  70% {
+    transform: translateX(-5.6875rem) translateY(-0.15625rem); }
+  80% {
+    transform: translateX(-6.5rem) translateY(0.15625rem); }
+  90% {
+    transform: translateX(-7.3125rem) translateY(-0.15625rem); }
+  100% {
+    transform: translateX(-8.125rem) translateY(0.15625rem); } }
+@keyframes grass1 {
+  to {
+    height: 12.375rem; } }
+@keyframes grass2 {
+  from {
+    transform: scale(2, 1); }
+  to {
+    opacity: 1; } }
+@keyframes trees {
+  from {
+    transform: translateY(-200%); }
+  80% {
+    transform: translateY(10%);
+    opacity: 1; }
+  90% {
+    transform: translateY(-10%);
+    opacity: 1; }
+  100% {
+    transform: none;
+    opacity: 1; } }
+@keyframes btnAppear {
+  to {
+    opacity: 1;
+    transform: none; } }
+@keyframes cir2 {
+  to {
+    transform: rotate(360deg); } }
+@keyframes bearDown {
+  from {
+    transform: translateY(-50%); }
+  to {
+    transform: none;
+    opacity: 1; } }
+@keyframes upAndDown {
+  from {
+    transform: translateY(-5%); }
+  to {
+    transform: none; } }
+@keyframes smokeBig {
+  from {
+    transform: scale(0, 0); }
+  to {
+    transform: scale(1, 1);
+    opacity: 1; } }
+@keyframes bearGo {
+  from {
+    opacity: 1; }
+  to {
+    transform: translateY(100%) scale(1.5, 1.5);
+    opacity: 0; } }
+@keyframes right2Left {
+  from {
+    opacity: 0;
+    transform: translateX(100%); }
+  to {
+    opacity: 1;
+    transform: none; } }
+@keyframes low2High {
+  to {
+    height: 100%; } }
+.title h3 {
+  opacity: 0; }
+.title p {
+  opacity: 0; }
+.title .line {
+  height: 0; }
+
+.swiper-slide.animate .title h3 {
+  animation: right2Left 0.5s forwards; }
+.swiper-slide.animate .title p {
+  animation: right2Left 0.5s .2s forwards; }
+.swiper-slide.animate .title .line {
+  animation: low2High 0.5s .5s forwards; }
+
+@keyframes leftAndRight {
+  from {
+    transform: translateX(50%); }
+  to {
+    transform: translateX(-50%); } }
+@keyframes changeLeg {
+  to {
+    transform: none; } }
+@keyframes moveAround {
+  25% {
+    transform: translateX(5%) translateY(-5%); }
+  50% {
+    transform: translateX(-5%) translateY(5%); }
+  75% {
+    transform: translateX(5%) translateY(-5%); }
+  100% {
+    transform: translateX(-5%) translateY(5%); } }
+@keyframes rotateInAndOut {
+  from {
+    opacity: 0;
+    transform: rotateZ(90deg); }
+  10% {
+    opacity: 1;
+    transform: rotateZ(-5deg); }
+  25% {
+    opacity: 1;
+    transform: rotateZ(0); }
+  85% {
+    opacity: 1;
+    transform: rotateZ(0); }
+  90% {
+    opacity: 1;
+    transform: rotateZ(5deg); }
+  100% {
+    opacity: 0;
+    transform: rotateZ(-90deg); } }
+@keyframes rotateInNotOut {
+  from {
+    opacity: 0;
+    transform: rotateZ(90deg); }
+  80% {
+    opacity: 1;
+    transform: rotateZ(-5deg); }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0); } }
+@keyframes big2small2big {
+  from {
+    opacity: 0;
+    transform: scale(1.5, 1.5); }
+  50% {
+    opacity: 1;
+    transform: scale(0.5, 0.5); }
+  100% {
+    opacity: 1;
+    transform: none; } }
+@keyframes down2Up {
+  from {
+    transform: translateY(50%); }
+  to {
+    transform: none;
+    opacity: 1; } }
+@keyframes handShake {
+  30% {
+    transform: rotate(5deg); }
+  60% {
+    transform: rotate(-5deg); }
+  100% {
+    transform: none; } }
